@@ -1,6 +1,6 @@
 {
   "name": "grunt-fetch-json",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Fetch and stash remote resources",
   "repository": "argyleink/grunt-fetch-json",
   "author": {
