@@ -32,7 +32,7 @@ module.exports = function (grunt) {
     },
 
     // Configuration to be run (and then tested).
-    fetchJSON: {
+    fetchJson: {
       singlefetch: {
         files: {
           'tmp/remote_data1.json': 'http://jsonplaceholder.typicode.com/posts/1'

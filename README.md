@@ -10,17 +10,17 @@ npm install grunt-fetch-json --save-dev
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('fetchJSON');
+grunt.loadNpmTasks('fetchJson');
 ```
 
-## The "fetchJSON" task
+## The "fetchJson" task
 
 ### Overview
-In your project's Gruntfile, add a section named `fetchJSON` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `fetchJson` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  fetchJSON: {
+  fetchJson: {
     options: {
       // Task-specific options go here.
     },
@@ -52,7 +52,7 @@ In this example, the default options are used to grab some json and stash it in 
 
 ```js
 grunt.initConfig({
-  fetchJSON: {
+  fetchJson: {
     files: {
       'data/remote_data1.json': 'http://jsonplaceholder.typicode.com/posts/1'
     }
@@ -65,7 +65,7 @@ In this example, we're fetching multiple files, in parallel.
 
 ```js
 grunt.initConfig({
-  fetchJSON: {
+  fetchJson: {
     files: {
       'tmp/remote_data2.json': 'http://jsonplaceholder.typicode.com/posts/2',
       'tmp/remote_data3.json': 'http://jsonplaceholder.typicode.com/posts/3'
@@ -79,7 +79,7 @@ Fetch json from an api with tokens or keys.
 
 ```js
 grunt.initConfig({
-  fetchJSON: {
+  fetchJson: {
     options: {
       method: 'GET',
       headers: {

@@ -2,7 +2,7 @@
   "name": "grunt-fetch-json",
   "version": "0.0.1",
   "description": "Fetch and stash remote resources",
-  "repository": "",
+  "repository": "argyleink/grunt-fetch-json",
   "author": {
     "name": "Adam Argyle",
     "email": "atom@argyleink.com",

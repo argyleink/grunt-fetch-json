@@ -16,7 +16,7 @@ module.exports = function (grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('fetchJSON', 'Fetch and stash remote resources', function () {
+  grunt.registerMultiTask('fetchJson', 'Fetch and stash remote resources', function () {
     // tell grunt this task is async
     var done          = this.async()
       , paramString   = '';
