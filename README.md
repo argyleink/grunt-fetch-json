@@ -74,6 +74,29 @@ grunt.initConfig({
 })
 ```
 
+#### Fetch with parameters
+Fetch json from an api with tokens or keys.
+
+```js
+grunt.initConfig({
+  fetchJSON: {
+    options: {
+      method: 'GET',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json'
+      },
+      parameters: {
+        access_token: '555'
+      }
+    },
+    files: {
+      'tmp/shirts.json': 'https://yourapi.com/shirts'
+    }
+  },
+})
+```
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 

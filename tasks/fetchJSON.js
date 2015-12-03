@@ -27,7 +27,9 @@ module.exports = function (grunt) {
       headers: {}
     });
 
-    if (options.parameters) paramString = '?';
+    if (options.parameters) {
+      paramString = '?';
+    }
 
     for (var param in options.parameters) {
       paramString += param + '=' + options.parameters[param];
