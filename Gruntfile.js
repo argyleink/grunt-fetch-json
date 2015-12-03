@@ -33,14 +33,19 @@ module.exports = function (grunt) {
 
     // Configuration to be run (and then tested).
     fetchJSON: {
-      // default_options: {
-      //   options: {
-      //   },
-      //   files: {
-      //     'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-      //   }
-      // },
-      placeholder: {
+      singlefetch: {
+        files: {
+          'tmp/remote_data1.json': 'http://jsonplaceholder.typicode.com/posts/1'
+        }
+      },
+      multifetch: {
+        files: {
+          'tmp/remote_data2.json': 'http://jsonplaceholder.typicode.com/posts/2',
+          'tmp/remote_data3.json': 'http://jsonplaceholder.typicode.com/posts/3'
+        }
+      },
+      // TODO, find api with easy access and test it here
+      multifetchWithOptions: {
         options: {
           method: 'GET',
           headers: {

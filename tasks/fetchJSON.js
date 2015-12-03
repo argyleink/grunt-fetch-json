@@ -11,20 +11,20 @@
 module.exports = function (grunt) {
   var fetch         = require('node-fetch')
     , async         = require('async')
-    , asyncTasks    = []
+    , asyncTasks    = [];
 
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerMultiTask('fetchJSON', 'Fetch and stash remote resources', function () {
     // tell grunt this task is async
-    var done = this.async()
+    var done = this.async();
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       method: 'GET',
       headers: {}
-    })
+    });
 
     // for each file
     this.files.forEach(function(file){
@@ -32,23 +32,25 @@ module.exports = function (grunt) {
       asyncTasks.push(function(complete){
         fetch(file.orig.src[0], options)
         .then(function(res) {
-          return res.json()
+          return res.json();
         })
         // then write them to file
         .then(function(json) {
-          grunt.file.write(file.dest, JSON.stringify(json))
-          grunt.log.writeln('File "' + file.dest + '" created.')
+          grunt.file.write(file.dest, JSON.stringify(json));
+          grunt.log.writeln('File "' + file.dest + '" created.');
           // fullfill promise
-          complete()
-        })
+          complete();
+        });
       });
-    })
+    });
 
     // run all fetch requests in parallel
     async.parallel(asyncTasks, function(err){
-      if (err) console.error(err)
+      if (err) {
+        console.error(err);
+      }
       // tell grunt we're done
-      done()
-    })
-  })
-}
+      done();
+    });
+  });
+};
