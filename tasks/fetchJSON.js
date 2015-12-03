@@ -18,7 +18,8 @@ module.exports = function (grunt) {
 
   grunt.registerMultiTask('fetchJSON', 'Fetch and stash remote resources', function () {
     // tell grunt this task is async
-    var done = this.async();
+    var done          = this.async()
+      , paramString   = '';
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
@@ -26,11 +27,17 @@ module.exports = function (grunt) {
       headers: {}
     });
 
+    if (options.parameters) paramString = '?';
+
+    for (var param in options.parameters) {
+      paramString += param + '=' + options.parameters[param];
+    }
+
     // for each file
     this.files.forEach(function(file){
       // push a function task for that file into the task array
       asyncTasks.push(function(complete){
-        fetch(file.orig.src[0], options)
+        fetch(file.orig.src[0] + paramString, options)
         .then(function(res) {
           return res.json();
         })
