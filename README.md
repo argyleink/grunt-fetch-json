@@ -1,30 +1,26 @@
-# Grunt-Fetch-JSON
-
-> Fetch and stash remote resources
-
 ## Getting Started
 This plugin requires Grunt.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install Grunt-Fetch-JSON --save-dev
+npm install grunt-fetch-json --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('Grunt-Fetch-JSON');
+grunt.loadNpmTasks('fetchJSON');
 ```
 
-## The "Grunt_Fetch_JSON" task
+## The "fetchJSON" task
 
 ### Overview
-In your project's Gruntfile, add a section named `Grunt_Fetch_JSON` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `fetchJSON` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  Grunt_Fetch_JSON: {
+  fetchJSON: {
     options: {
       // Task-specific options go here.
     },
@@ -37,47 +33,43 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.method
 Type: `String`
-Default value: `',  '`
+Default value: `'GET'`
 
-A string value that is used to do something with whatever.
+A string value that is passed with the fetch request.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### options.headers
+Type: `Object`
+Default value: `{}`
 
-A string value that is used to do something else with whatever else.
+An object with keys and values you'd like passed with the fetch request.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, the default options are used to grab some json and stash it in a local file.
 
 ```js
 grunt.initConfig({
-  Grunt_Fetch_JSON: {
-    options: {},
+  fetchJSON: {
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+      'data/remote_data1.json': 'http://jsonplaceholder.typicode.com/posts/1'
+    }
   },
 })
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+#### Multiple File Options
+In this example, we're fetching multiple files, in parallel.
 
 ```js
 grunt.initConfig({
-  Grunt_Fetch_JSON: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
+  fetchJSON: {
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+      'tmp/remote_data2.json': 'http://jsonplaceholder.typicode.com/posts/2',
+      'tmp/remote_data3.json': 'http://jsonplaceholder.typicode.com/posts/3'
+    }
   },
 })
 ```
@@ -86,7 +78,7 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+* 2015-12-02  v0.0.1  Initial release
 
 ## License
 Copyright (c) 2015 Adam Argyle. Licensed under the MIT license.
