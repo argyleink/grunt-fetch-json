@@ -43,20 +43,20 @@ module.exports = function (grunt) {
           'tmp/remote_data2.json': 'http://jsonplaceholder.typicode.com/posts/2',
           'tmp/remote_data3.json': 'http://jsonplaceholder.typicode.com/posts/3'
         }
-      },
-      // TODO, find api with easy access and test it here
-      multifetchWithOptions: {
-        options: {
-          method: 'GET',
-          headers: {
-            apikey: '2387kljdlj28'
-          }
-        },
-        files: {
-          'tmp/remote_data.json': 'http://jsonplaceholder.typicode.com/posts/1',
-          'tmp/remote_data2.json': 'http://jsonplaceholder.typicode.com/posts/2'
-        }
       }
+      // TODO, find api with easy access and test it here
+      // , multifetchWithOptions: {
+      //   options: {
+      //     method: 'GET',
+      //     headers: {
+      //       apikey: '2387kljdlj28'
+      //     }
+      //   },
+      //   files: {
+      //     'tmp/remote_data.json': 'http://jsonplaceholder.typicode.com/posts/1',
+      //     'tmp/remote_data2.json': 'http://jsonplaceholder.typicode.com/posts/2'
+      //   }
+      // }
     },
 
     // Unit tests.
