@@ -28,5 +28,14 @@ exports.Grunt_Fetch_JSON = {
     test.equal(actual2, expected2, 'should describe what the custom option(s) behavior is.');
 
     test.done();
+  },
+  withOptions: function (test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/contentful.json');
+    var expected = grunt.file.read('test/expected/contentful.json');
+    test.equal(actual, expected, 'should describe what the default behavior is.');
+
+    test.done();
   }
 };
