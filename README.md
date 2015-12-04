@@ -14,6 +14,12 @@ grunt.loadNpmTasks('fetchJson');
 ```
 
 ## The "fetchJson" task
+The goal here is simply to allow fetching of remote data sources for use in your app. A couple use cases include:
+- Passing the data to a templated build sytem (jade, handlebars, etc), ultimately creating static sites that are data driven
+- Taking work off your server and putting it into the build system
+- Eliminating ajax spinners from your client code, aka thinning out the client
+
+I'm sure the community will come up with plenty of other interesting use cases for this tool. Get creative!
 
 ### Overview
 In your project's Gruntfile, add a section named `fetchJson` to the data object passed into `grunt.initConfig()`.
@@ -24,7 +30,7 @@ grunt.initConfig({
     options: {
       // Task-specific options go here.
     },
-    your_target: {
+    your_files: {
       // Target-specific file lists and/or options go here.
     },
   },
@@ -44,6 +50,20 @@ Type: `Object`
 Default value: `{}`
 
 An object with keys and values you'd like passed with the fetch request.
+
+#### options.body
+Type: `Object`
+Default value: `{}`
+
+An object with keys and values you'd like passed with the fetch request.
+
+#### options.parameters
+Type: `Object`
+Default value: `{}`
+
+An object with keys and values you'd like appended to the request url.
+
+###### More options can be found here [node-fetch](https://www.npmjs.com/package/node-fetch).
 
 ### Usage Examples
 
@@ -87,11 +107,12 @@ grunt.initConfig({
         'Content-Type': 'application/json'
       },
       parameters: {
-        access_token: '555'
+        access_token:   '555'
       }
     },
     files: {
-      'tmp/shirts.json': 'https://yourapi.com/shirts'
+      'tmp/shirts.json':  'https://yourapi.com/shirts',
+      'tmp/pants.json':   'https://yourapi.com/pants'
     }
   },
 })
@@ -101,6 +122,7 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+* 2015-12-04  v0.0.3  Improved readme
 * 2015-12-03  v0.0.2  Improved naming convention
 * 2015-12-02  v0.0.1  Initial release
 
