@@ -29,10 +29,13 @@ module.exports = function (grunt) {
 
     if (options.parameters) {
       paramString = '?';
+      var count = 0;
     }
 
     for (var param in options.parameters) {
+      if (count != 0) paramString += '&'
       paramString += param + '=' + options.parameters[param];
+      count++
     }
 
     // for each file
