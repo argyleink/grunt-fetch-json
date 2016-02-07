@@ -24,7 +24,8 @@ module.exports = function (grunt) {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       method: 'GET',
-      headers: {}
+      headers: {},
+      pretty: true
     });
 
     if (options.parameters) {
@@ -48,7 +49,10 @@ module.exports = function (grunt) {
         })
         // then write them to file
         .then(function(json) {
-          grunt.file.write(file.dest, JSON.stringify(json));
+          if (options.pretty)
+            grunt.file.write(file.dest, JSON.stringify(json, null, 2));
+          else
+            grunt.file.write(file.dest, JSON.stringify(json));
           grunt.log.writeln('File "' + file.dest + '" created.');
           // fullfill promise
           complete();
